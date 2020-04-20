@@ -1,6 +1,5 @@
 #!/usr/bin/perl -w
 
-$flag=0;
 while(<>){
     # Matched regex put into date and hour variable
     ($date) = $ARGV =~ m/([\d]{4}-[\d]{2}-[\d]{2})/;
@@ -18,7 +17,8 @@ while(<>){
     if( eof ) {
         # Sorting keys based on ASCII table
         foreach $time (sort keys %count){
-            printf "%3d : %d\n",$time,$count{$time};
+            $format = sprintf "%02d : %d\n",$time,$count{$time};
+            print $format;
         }
         $flag=0;
         %count=();
