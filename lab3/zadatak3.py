@@ -46,5 +46,12 @@ for file in dirs:
 
 for student in log:
     nameFormat=log[student]["Prezime"]+", "+log[student]["Ime"]
-    print("JMBAG      Prezime, Ime                   L1  L2  L3  L4")
-    print('{} {:30} {} {} {} {}'.format(student, nameFormat, log[student][1], log[student][2], log[student][3], log[student][4]))
+    print("JMBAG      Prezime, Ime                   ", end="")
+    for i in range(len(log[student]) - 2):
+        print('L{}'.format(i+1), end="  ")
+    print()
+    
+    print('{} {:30} '.format(student, nameFormat), end="")
+    for i in range(len(log[student]) - 2):
+        print('{}'.format(log[student][i+1]), end=" ")
+    print()
